@@ -4,15 +4,17 @@ import os
 isWindows = os.name == "nt"
 
 def ping(host):
-	#TODO: Check for OS, change ping_string accordingly
 	if isWindows:
 		ping_string = 'ping -n 1 ' + host
 	else:
 		ping_string = 'ping ' + host
 	
-	return sp.call(ping_string, False) == 0
+	#Runs command returns a boolean indicating whether server responded to ping or not.
+	#Shell output is routed to OS' equivalent of /dev/null
+	with open(os.devnull, 'w') as devnull:
+		return sp.call(ping_string, stdout=devnull) == 0
 
-print(ping("www.gsdfgdfsgdfsgdfsgdf.com"))
+print(ping("www.adsfasdfdsafdsafsda.com"))
 
 
 
