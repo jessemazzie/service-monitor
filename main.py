@@ -14,7 +14,15 @@ def ping(host):
 	with open(os.devnull, 'w') as devnull:
 		return sp.call(ping_string, stdout=devnull) == 0
 
-print(ping("www.adsfasdfdsafdsafsda.com"))
+def checkPort(host, portNum):
+	telnet_string = 'telnet '
+
+	with open(os.devnull, 'w') as devnull:
+		print(telnet_string + portNum + ' ' + host)
+		return sp.call(telnet_string + portNum + ' ' + host, stdout=devnull)
+
+#print(checkPort("www.adsfasdfdsafdsafsda.com", '22'))
+print(ping("www.google.com"))
 
 
 
