@@ -1,7 +1,13 @@
 import subprocess as sp
+import logging
+import socket
 import os
 
 isWindows = os.name == "nt"
+if isWindows:
+	logging.info("This is a Windows system.")
+else:
+	logging.info("This is not a Windows system.")
 
 def ping(host):
 	if isWindows:
@@ -15,14 +21,16 @@ def ping(host):
 		return sp.call(ping_string, stdout=devnull) == 0
 
 def checkPort(host, portNum):
-	telnet_string = 'telnet '
+	sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	try:
+		result = sock.connect_ex((host, portNum))
+	except TypeError:
+		logging.error("portNum is expected to be an integer.")
+		
+	return result == 0
 
-	with open(os.devnull, 'w') as devnull:
-		print(telnet_string + portNum + ' ' + host)
-		return sp.call(telnet_string + portNum + ' ' + host, stdout=devnull)
-
-#print(checkPort("www.adsfasdfdsafdsafsda.com", '22'))
-print(ping("www.google.com"))
+print(checkPort("www.google.com", 22))
+#print(ping("www.google.com"))
 
 
 
