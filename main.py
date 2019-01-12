@@ -9,6 +9,7 @@ if isWindows:
 else:
 	logging.info("This is not a Windows system.")
 
+
 def ping(host):
 	if isWindows:
 		ping_string = 'ping -n 1 ' + host
@@ -20,16 +21,18 @@ def ping(host):
 	with open(os.devnull, 'w') as devnull:
 		return sp.call(ping_string, stdout=devnull) == 0
 
-def checkPort(host, portNum):
+
+def checkport(host, portnum):
 	sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	try:
-		result = sock.connect_ex((host, portNum))
+		result = sock.connect_ex((host, portnum))
 	except TypeError:
 		logging.error("portNum is expected to be an integer.")
 		
 	return result == 0
 
-print(checkPort("www.google.com", 22))
+
+print(checkport("www.google.com", 22))
 #print(ping("www.google.com"))
 
 
