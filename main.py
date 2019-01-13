@@ -1,18 +1,21 @@
-from flask import Flask
+from flask import render_template
+import connexion
 import network_utils as nu
 
-app = Flask(__name__)
+#Create the application instance
+app = connexion.App(__name__, specification_dir='./')
+
+#Configure the REST endpoints
+app.add_api('swagger.yml')
+
 
 @app.route("/")
 def home():
-    return "Hello, world!"
+    return render_template("home.html")
 
 
 if __name__ == "__main__":
     app.run(debug=True)
 
-#print(nu.checkport("www.google.com", 65546))
-#print(ping("www.google.com"))
-
-
-
+# print(nu.checkport("www.google.com", 65546))
+# print(ping("www.google.com"))

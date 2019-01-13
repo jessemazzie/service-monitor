@@ -26,6 +26,7 @@ def checkport(host, portnum):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
         result = sock.connect_ex((host, portnum))
+        logging.debug("Result: " + result)
     except TypeError:
         logging.error("Port number is expected to be an integer.")
     except OverflowError:
