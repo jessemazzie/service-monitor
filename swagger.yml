@@ -1,0 +1,36 @@
+swagger: "2.0"
+info:
+  description: This is the swagger file that goes with our server code
+  version: "1.0.0"
+  title: Swagger REST Article
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+
+basePath: "/api"
+
+# Paths supported by the server application
+paths:
+  /status/{domain}:
+    get:
+      operationId: "monitor.get_status"
+      tags:
+        - "Monitor"
+      summary: "The people data structure supported by the server application"
+      description: "Get the status of a given server"
+      parameters:
+        - name: "domain"
+          in: "path"
+          description: "Domain name or IP address of server"
+          type: "string"
+          required: True
+      responses:
+        200:
+          description: "Successful read people list operation"
+          schema:
+            properties:
+              status:
+                type: "string"
+              timestamp:
+                type: "string"
