@@ -27,7 +27,35 @@ paths:
           required: True
       responses:
         200:
-          description: "Successful read people list operation"
+          description: "Successful server status check"
+          schema:
+            properties:
+              status:
+                type: "string"
+              timestamp:
+                type: "string"
+
+  /status/{domain}/{portnum}:
+    get:
+      operationId: "monitor.get_port_status"
+      tags:
+        - "Monitor"
+      summary: "The people data structure supported by the server application"
+      description: "Get the status of a given server"
+      parameters:
+        - name: "domain"
+          in: "path"
+          description: "Domain name or IP address of server"
+          type: "string"
+          required: True
+        - name: "portnum"
+          in: "path"
+          description: "Specific port number to check."
+          type: "string"
+          required: True
+      responses:
+        200:
+          description: "Successful server status check"
           schema:
             properties:
               status:

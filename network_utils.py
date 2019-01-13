@@ -29,8 +29,10 @@ def checkport(host, portnum):
         logging.debug("Result: " + result)
     except TypeError:
         logging.error("Port number is expected to be an integer.")
+        return False
     except OverflowError:
         logging.error("Port number must be 0-65535.")
+        return False
 
     return result == 0
 
