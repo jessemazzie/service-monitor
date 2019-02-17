@@ -2,7 +2,7 @@ swagger: "2.0"
 info:
   description: This is the swagger file that goes with our server code
   version: "0.1"
-  title: Swagger REST Article
+  title: Network utility API
 consumes:
   - "application/json"
 produces:
@@ -10,7 +10,6 @@ produces:
 
 basePath: "/api"
 
-# Paths supported by the server application
 paths:
   /status/{domain}:
     get:
