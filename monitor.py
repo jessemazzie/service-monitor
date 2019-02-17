@@ -14,10 +14,10 @@ def get_port_status(domain, portnum):
     else:
         return "down"
 
-def scan_ports(host):
+def scan_port_range(host, lowPort = 1, highPort = 65535):
     ports_listening = []
 
-    for i in range(65535):
+    for i in range(lowPort, highPort):
         if(nu.checkport(host, i)) == 0:
             ports_listening.append(i)
 
