@@ -14,7 +14,7 @@ def get_port_status(domain, portnum):
     else:
         return "down"
 
-def scan_port_range(host, lowPort = 1, highPort = 65535):
+def get_port_range_status(host, lowPort = 1, highPort = 65535):
     ports_listening = []
 
     for i in range(lowPort, highPort):
