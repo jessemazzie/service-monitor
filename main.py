@@ -11,7 +11,7 @@ app.add_api('swagger.yml')
 
 @app.route("/")
 def home():
-    return redirect("/api/ui")
+    return render_template("index.html")
 
 
 if __name__ == "__main__":
