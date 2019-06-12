@@ -5,6 +5,14 @@ function init() {
     let submitBtn = document.getElementById("add-service-button");
 
     submitBtn.addEventListener('click', function () {
-        alert('test');
+        let server = document.getElementById("server");
+        let port = document.getElementById("port");
+        //TODO: Validate server/port
     });
+}
+
+
+//Gets status of a given service.
+function getStatus(server, port) {
+
 }
