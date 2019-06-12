@@ -9,6 +9,7 @@ def get_status(domain):
 
 
 def get_port_status(domain, portnum):
+
     if nu.checkport(domain, portnum) == 0:
         return "up"
     else:
