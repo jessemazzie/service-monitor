@@ -32,5 +32,5 @@ function getStatus(server, port) {
 Adds a service to the dashboard.
  */
 function addToDashBoard(server, port) {
-    
+
 }
