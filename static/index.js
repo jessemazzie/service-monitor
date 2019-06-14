@@ -1,6 +1,7 @@
 window.onload = init;
-
-//Various tasks performed on page load.
+/*
+Various tasks performed on page load.
+ */
 function init() {
     let submitBtn = document.getElementById("add-service-button");
 
@@ -13,13 +14,23 @@ function init() {
     });
 }
 
-
-//Gets status of a given service.
+/*
+Gets status of a given service.
+*/
 function getStatus(server, port) {
     return fetch('http://localhost:5000/status/' + server + "/" + port, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
         }
-    }).then(response => response.json());
+    }).then(response => response.json()
+            addToDashBoard(server, port);
+    );
+}
+
+/*
+Adds a service to the dashboard.
+ */
+function addToDashBoard(server, port) {
+    
 }
