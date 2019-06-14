@@ -23,14 +23,13 @@ function getStatus(server, port) {
         headers: {
             'Content-Type': 'application/json'
         }
-    }).then(response => response.json()
-            addToDashBoard(server, port);
-    );
+    }).then(response => response.json());
+
 }
 
 /*
 Adds a service to the dashboard.
  */
-function addToDashBoard(server, port) {
+function addToDashboard(server, port) {
 
 }
